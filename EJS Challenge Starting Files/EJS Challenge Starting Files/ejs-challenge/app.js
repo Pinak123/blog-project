@@ -17,9 +17,25 @@ app.use(express.static("public"));
 
 app.get('/', (req, res) => {
   res.render('home', {h1str: homeStartingContent})
+});
+app.get('/about', (req, res) => {
+  res.render('about', {about:aboutContent})
 })
-
-
+app.get('/contact', (req, res) => {
+  res.render('contact', {contact:contactContent})
+})
+app.get('/compose', (req, res) => {
+  res.render('compose')
+})
+app.post('/compose', (req, res) => {
+  let data = 
+  {
+    title: req.body.data,
+    postdata: req.body.Postdata
+  }
+  console.log(data);
+  res.redirect('/');
+})
 
 
 
